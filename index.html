@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>نظام تسجيل الحضور والغياب</title>
+  
+  <!-- استيراد الخط -->
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+  
+  <!-- استيراد Font Awesome للأيقونات -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  
+  <!-- ملف التنسيق -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <!-- زر الوضع الليلي -->
+  <button id="theme-toggle" title="تبديل الوضع">🌙</button>
+
+  <!-- زر تسجيل الخروج -->
+  <button class="logout-btn" id="logout-btn">
+    <i class="fa-solid fa-right-from-bracket"></i> تسجيل الخروج
+  </button>
+
+  <!-- الشعار -->
+  <div class="logo">
+    <img src="https://f.top4top.io/p_3564d7ot40.jpg" alt="شعار المدرسة">
+    <h1>نظام إدارة الحضور والغياب</h1>
+  </div>
+
+  <!-- نموذج الإدخال -->
+  <form id="attendance-form">
+    <input type="text" id="student-name" placeholder="اسم الطالب">
+    <input type="text" id="student-class" placeholder="الفصل">
+    <select id="status">
+      <option value="">اختر الحالة</option>
+      <option value="present">حاضر</option>
+      <option value="absent">غائب</option>
+      <option value="late">متأخر</option>
+    </select>
+    <button type="submit"><i class="fa-solid fa-plus"></i> إضافة</button>
+  </form>
+
+  <!-- مربع البحث -->
+  <input type="text" id="search-input" placeholder="🔍 ابحث عن طالب...">
+
+  <!-- الإحصائيات -->
+  <div class="stats">
+    <span>✅ حاضر: <strong id="count-present">0</strong></span>
+    <span>❌ غائب: <strong id="count-absent">0</strong></span>
+    <span>⏰ متأخر: <strong id="count-late">0</strong></span>
+  </div>
+
+  <!-- أزرار الطباعة والتصدير -->
+  <div class="export-buttons">
+    <button id="print-btn"><i class="fa-solid fa-print"></i> طباعة</button>
+    <button id="excel-btn"><i class="fa-solid fa-file-excel"></i> Excel</button>
+    <button id="pdf-btn"><i class="fa-solid fa-file-pdf"></i> PDF</button>
+  </div>
+
+  <!-- جدول الحضور -->
+  <table id="attendance-table">
+    <thead>
+      <tr>
+        <th>الاسم</th>
+        <th>الفصل</th>
+        <th>الحالة</th>
+        <th>التاريخ</th>
+        <th>إجراءات</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- البيانات تُضاف ديناميكيًا من JavaScript -->
+    </tbody>
+  </table>
+
+  <!-- سكريبت الاتصال بقاعدة البيانات -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+
+  <!-- ملف السكريبت -->
+  <script src="script.js"></script>
+</body>
+</html>
